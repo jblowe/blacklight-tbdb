@@ -1,0 +1,41 @@
+<script>
+  function ToggleSidebar () {
+    const sidebar = document.getElementById("sidebar");
+    const content = document.getElementById("content");
+    if (sidebar.style["display"] == "none") {
+      sidebar.style["display"] = "block";
+      content.classList.remove("col-lg-12");
+      content.classList.add("col-lg-9");
+    }
+    else {
+      sidebar.style["display"] = "none";
+      content.classList.remove("col-lg-9");
+      content.classList.add("col-lg-12");
+    }
+  }
+</script>
+<ul class="navbar-nav">
+  <%= render_nav_actions do |config, action|%>
+    <li class="nav-item"><%= action %></li>
+  <% end %>
+
+  <% if has_user_authentication_provider? %>
+    <% if current_user %>
+    <li class="nav-item">
+      <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path, class: 'nav-link' %>
+    </li>
+    <% unless current_user.to_s.blank? -%>
+    <li class="nav-item">
+      <%= link_to current_user, edit_user_registration_path, class: 'nav-link' %>
+    </li>
+    <% end %>
+    <% else %>
+    <li class="nav-item">
+      <%= link_to t('blacklight.header_links.login'), new_user_session_path, class: 'nav-link' %>
+    </li>
+    <% end %>
+  <% end %>
+  <li>
+    <button class="nav-item nav-link" href="#" id="toggle_sidebar" onclick="ToggleSidebar()">Toggle Sidebar</button>
+  </li>
+</ul>

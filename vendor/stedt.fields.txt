@@ -1,0 +1,11 @@
+language_s
+form_s
+gloss_s
+gfn_s
+semkey_s
+analysis_s
+groupnode_s
+subgroup_s
+srcabbr_s
+citation_s
+srcid_s

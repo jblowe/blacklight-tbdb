@@ -1,0 +1,21 @@
+<% # container for all documents in index list view -%>
+<% view_config = local_assigns[:view_config] || blacklight_config&.view_config(document_index_view_type) %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>language</th>
+      <th>form</th>
+      <th>gloss</th>
+      <th>gfn</th>
+      <th>groupnode</th>
+      <th>subgroup</th>
+      <!-- th>srcabbr</th -->
+      <th>citation</th>
+      <th>srcid</th>
+      <th>semkey</th>
+      <th>analysis</th>
+    </tr>
+  </thead>
+  <% document_presenters = documents.map { |doc| document_presenter(doc) } -%>
+  <%= render view_config.document_component.with_collection(document_presenters, partials: view_config.partials, counter_offset: @response&.start || 0) %>
+</table>
