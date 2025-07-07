@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.2.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.8", ">= 7.0.8.1"
+gem "rails", "~> 7.0.8", ">= 7.0.8.3"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -70,7 +70,7 @@ group :test do
   gem "selenium-webdriver"
 
 end
-gem "blacklight", ">= 7.0"
+gem "blacklight", "~> 8.1.0"
 
 group :development, :test do
   gem "solr_wrapper", ">= 0.3"
@@ -81,3 +81,7 @@ gem "sassc-rails", "~> 2.1"
 gem "devise"
 gem "devise-guests", "~> 0.8"
 gem "blacklight-marc", "~> 8.0"
+gem "openseadragon", ">= 0.2.0"
+gem "base64", "0.3.0"
+gem 'concurrent-ruby', '1.3.4'
+gem "blacklight-gallery"
