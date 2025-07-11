@@ -70,3 +70,8 @@ yarn-debug.log*
 
 # mac hidden files
 .DS_Store
+
+# secrets
+/config/master.key
+/config/credentials.yml.enc
+
